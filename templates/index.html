@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/static/img/icon.png" type="image/png">
+    <title>Car Price Predicator</title>
+</head>
+
+<body>
+
+    <div>
+        <h2>Predictive Analysis</h2>
+        <form action="{{ url_for('predict')}}" method="post">
+
+            
+            <label>Year of Car</label> <input id="first" name="Year" type="number "><br><br>
+
+            <label>What is the Showroom Price?(In lakhs)</label><input id="second" name="Present_Price" required="required"><br><br>
+
+            <label>How Many Kilometers Drived?</label><input id="third" name="Kms_Driven" required="required"><br><br>
+
+            <label>How many owners previously had the car ?</label><input id="fourth" name="Owner" required="required"><br><br><br>
+
+            <label>What Is the Fuel type?</label><select name="Fuel_Type_Petrol" id="fuel" required="required"><br><br>
+
+                <option value="Petrol">Petrol</option>
+                <option value="Diesel">Diesel</option>
+                <option value="Diesel">CNG</option>
+            </select><br><br><br>
+            <label>Are you A Dealer or Individual</label><select name="Seller_Type_Individual" id="resea" required="required">
+                <option value="Dealer">Dealer</option>
+                <option value="Individual">Individual</option>
+            </select><br><br><br>
+            <label>Transmission type</label><select name="Transmission_Mannual" id="research" required="required">
+                <option value="Mannual">Manual Car</option>
+                <option value="Automatic">Automatic Car</option>
+            </select>
+            <br><br><button id="sub" type="submit ">Calculate   the Selling Price</button>
+            <div>
+            <h3>{{ prediction_text }} lakhs <h3></div>
+        </form>
+       
+    </div>
+
+
+
+
+    <style>
+    	body{
+
+				background-image: url("/static/img/car.jpg");
+                background-size: cover;
+                 font-family:sans-serife;
+               
+			}
+
+        h2{
+            text-align: center;
+            font-size: 40px;
+            font-weight: 600;
+            text-shadow: 2px 1px #8bc34a;
+        }
+
+        form{
+            margin-left: 270px;
+             margin-top: 20px;
+            padding: 30px;
+            margin-right: 300px;
+            position: relative;
+            
+            }
+
+        label{
+            margin-right: 50px;
+            font-size: 20px;
+            font-weight: 700;
+        }
+        
+        
+        
+        #sub{
+             align-items: center;
+              border: 0;
+              border-radius: 3px;
+              color: white;
+              border-color: black;
+              display: flex;
+              background-color: #4caf50;    
+                font-size: 13px;
+              font-weight: 500;
+              justify-content: center;
+              margin-top: 20px;
+              outline: none;
+              margin-left: 200px;
+              padding: 10px 60px;
+              text-transform: uppercase;
+
+            }
+
+            #sub:hover{
+                background-color: black;
+               
+            }
+        #first{
+                margin-left: 265px;
+                width: 200px;
+                height: 23px;
+                background-color: #fffdfd;;
+                border-color: green;
+                border-style: dashed;
+                font-weight: 600;
+                font-size:18px;
+                 }
+
+        #second{
+                margin-left: 35px;
+                width: 200px;
+                height: 23px;
+                background-color: #fffdfd;;
+                border-color: green;
+                border-style: dashed;
+                font-weight: 600;
+                font-size:18px;
+        }
+
+        #third{
+
+                margin-left: 105px;
+                 width: 200px;
+                height: 23px;
+                background-color: #fffdfd;;
+                border-color: green;
+                border-style: dashed;
+                font-weight: 600;
+                font-size:18px;
+        }
+
+        #fourth{
+                margin-left: 4px;
+                width: 200px;
+                height: 23px;
+                background-color: #fffdfd;;
+                border-color: green;
+                border-style: dashed;
+                font-weight: 600;
+                font-size:18px;
+
+        }
+        #fuel{
+                margin-left: 180px;
+                width: 200px;
+                height: 23px;
+                background-color: #fffdfd;
+                border-color: green;
+                border-style: dashed;
+                font-size: 15px;
+                font-weight: 600;
+
+        }
+        #resea{
+                margin-left: 110px;
+                width: 200px;
+                height: 23px;
+                background-color: #fffdfd;;
+                border-color: green;
+                border-style: dashed;
+                font-size: 15px;
+                font-weight: 600;
+
+        }
+        #research{
+                margin-left: 220px;
+                width: 200px;
+                height: 23px;
+                background-color: #fffdfd;;
+                border-color: green;
+                border-style: dashed;
+                font-size: 15px;
+                font-weight: 600;
+
+
+        }
+        #fuel:hover{
+            background-color: powderblue;
+        }
+        #resea:hover{
+            background-color: powderblue;
+        }
+        #research:hover{
+            background-color: powderblue;
+        }
+
+        h3{
+             text-align: center;
+            font-size: 30px;
+            font-weight: 600;
+            text-shadow: 2px 1px #8bc34a;
+        }
+        
+        
+    </style>
+</body>
+
+</html>
